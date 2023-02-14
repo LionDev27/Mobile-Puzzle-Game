@@ -11,18 +11,21 @@ public class BaseTile : MonoBehaviour
         ChangeSpriteColor(_baseColor);
     }
 
-    private void OnMouseEnter()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        ChangeSpriteColor(_playerOnTileColor);
-    }
-
-    private void OnMouseExit()
-    {
-        ChangeSpriteColor(_baseColor);
+        if (other.CompareTag("Player"))
+        {
+            OnPlayerEnter();
+        }
     }
 
     private void ChangeSpriteColor(Color newColor)
     {
         _spriteRenderer.color = newColor;
+    }
+
+    protected virtual void OnPlayerEnter()
+    {
+        ChangeSpriteColor(_playerOnTileColor);
     }
 }
