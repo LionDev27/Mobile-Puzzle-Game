@@ -30,7 +30,8 @@ public class TileController : MonoBehaviour
             {
                 //Lo pasamos a posicion de mundo.
                 Vector3 pos = _pathMap.CellToWorld(position);
-                pos = new Vector3(pos.x + 0.5f, pos.y + 0.5f, pos.z);
+                //Ajustamos la posición teniendo en cuenta el tamaño de la celda.
+                pos = new Vector3(pos.x + (_pathMap.cellSize.x / 2f), pos.y + (_pathMap.cellSize.y / 2f), pos.z);
 
                 //Si modificamos la escala del Grid de alguna manera, no funciona. Hay que ver como arreglarlo.
                 #region GridScale
