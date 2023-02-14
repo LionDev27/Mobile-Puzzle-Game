@@ -32,19 +32,6 @@ public class TileController : MonoBehaviour
                 Vector3 pos = _pathMap.CellToWorld(position);
                 //Ajustamos la posición teniendo en cuenta el tamaño de la celda.
                 pos = new Vector3(pos.x + (_pathMap.cellSize.x / 2f), pos.y + (_pathMap.cellSize.y / 2f), pos.z);
-
-                //Si modificamos la escala del Grid de alguna manera, no funciona. Hay que ver como arreglarlo.
-                #region GridScale
-
-                // //Obtenemos el tamaño de las celdas en el Grid.
-                // Vector2 cellSize = _pathMap.layoutGrid.cellSize;
-                // //Si ha cambiado el tamaño de las celdas, ajustamos la posición.
-                // if (cellSize != Vector2.one)
-                // {
-                //     // pos = new Vector3(pos.x - cellSize.x, pos.y - cellSize.y, pos.z);
-                // }
-
-                #endregion
                 
                 //Instanciamos nuestro propio tile de funcionamiento. Se puede cambiar a Object Pooling.
                 GameObject tempTile = Instantiate(_tilePrefab, pos, quaternion.identity);
@@ -54,5 +41,6 @@ public class TileController : MonoBehaviour
         }
         
         //Destruimos el tilemap.
+        Destroy(gameObject);
     }
 }
