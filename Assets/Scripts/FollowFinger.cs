@@ -6,11 +6,13 @@ public class FollowFinger : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private Rigidbody2D _rB;
-    Vector2 dir;
+    private Vector2 _dir;
+    private Camera _mainCam;
 
     private void Awake()
     {
         _rB = GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+        _mainCam = Camera.main;
     }
 
     private void Update()
@@ -18,13 +20,22 @@ public class FollowFinger : MonoBehaviour
         //Calculate
         if (Input.touchCount > 0)
         {
-            dir = Camera.main.ScreenToWorldPoint(Input.touches[0].position) - transform.position;
-            dir.Normalize();
+            _dir = _mainCam.ScreenToWorldPoint(Input.touches[0].position) - transform.position;
+            _dir.Normalize();
+
+            if(Vector2.Distance(transform.position, _mainCam.ScreenToWorldPoint(Input.touches[0].position)) < 0.05f)
+            {
+                _dir = Vector2.zero;
+            }
+        }
+        else
+        {
+            _dir = Vector2.zero;
         }
     }
 
     private void FixedUpdate()
     {
-        _rB.velocity = dir * _speed * Time.fixedDeltaTime;
+        _rB.velocity = _dir * _speed * Time.fixedDeltaTime;
     }
 }

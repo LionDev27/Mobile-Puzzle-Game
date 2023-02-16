@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseTile : MonoBehaviour
 {
-    [SerializeField] private Color _baseColor, _playerOnTileColor;
+    [SerializeField] private Color _baseColor, _playerOnTileColor, _playerOutsideColor;
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
@@ -19,6 +19,14 @@ public class BaseTile : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            OnPlayerExit();
+        }
+    }
+
     private void ChangeSpriteColor(Color newColor)
     {
         _spriteRenderer.color = newColor;
@@ -27,5 +35,10 @@ public class BaseTile : MonoBehaviour
     protected virtual void OnPlayerEnter()
     {
         ChangeSpriteColor(_playerOnTileColor);
+    }
+
+    protected virtual void OnPlayerExit()
+    {
+        ChangeSpriteColor(_playerOutsideColor);
     }
 }
