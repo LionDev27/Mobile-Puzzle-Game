@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GoalTile : BaseTile
 {
+    [SerializeField] private Animator _levelCompleted;
+
     protected override void OnPlayerEnter()
     {
-        Debug.Log("Goal Reached");
+        _levelCompleted.SetTrigger("levelCompleted");
     }
 
     protected override void OnPlayerExit()

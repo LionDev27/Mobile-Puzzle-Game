@@ -1,12 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
     private int _currentLevel;
     private Level _level = new Level();
+
+    public static LevelController instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        _currentLevel++;
+        if (_currentLevel + 1 >= SceneManager.sceneCountInBuildSettings - 1) _currentLevel = 0;
+
+        SceneManager.LoadScene(_currentLevel);
+
+        SaveCurrentLevel();
+    }
 
     [ContextMenu("SaveGame")]
     public void SaveCurrentLevel()
@@ -17,10 +40,16 @@ public class LevelController : MonoBehaviour
     }
 
     [ContextMenu("LoadGame")]
-    public void LoadLastLevel()
+    public void LoadSavedLevel()
     {
         _level = JsonUtility.FromJson<Level>(File.ReadAllText(Application.dataPath + "/Savegame.json"));
         _currentLevel = _level.level;
+    }
+
+    public void LoadLastLevel()
+    {
+        if(_currentLevel > SceneManager.sceneCountInBuildSettings - 1) _currentLevel = SceneManager.sceneCountInBuildSettings - 1;
+        SceneManager.LoadScene(_currentLevel);
     }
 }
 
