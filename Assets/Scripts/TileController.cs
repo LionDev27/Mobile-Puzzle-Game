@@ -6,7 +6,7 @@ public class TileController : MonoBehaviour
 {
     [SerializeField] private GameObject _tilePrefab;
     private Tilemap _pathMap;
-    
+
     private void Awake()
     {
         _pathMap = GetComponent<Tilemap>();
@@ -30,16 +30,17 @@ public class TileController : MonoBehaviour
             {
                 //Lo pasamos a posicion de mundo.
                 Vector3 pos = _pathMap.CellToWorld(position);
+                Vector3 cellSize = _pathMap.transform.localScale / 2;
                 //Ajustamos la posición teniendo en cuenta el tamaño de la celda.
-                pos = new Vector3(pos.x + (_pathMap.cellSize.x / 2f), pos.y + (_pathMap.cellSize.y / 2f), pos.z);
-                
+                pos = new Vector3(pos.x + (cellSize.x / 2f), pos.y + (cellSize.y / 2f), pos.z);
+
                 //Instanciamos nuestro propio tile de funcionamiento. Se puede cambiar a Object Pooling.
                 GameObject tempTile = Instantiate(_tilePrefab, pos, quaternion.identity);
                 //Cambiamos la escala del tile propio a la del Grid para que tenga el mismo tamaño.
-                tempTile.transform.localScale = _pathMap.layoutGrid.cellSize;
+                tempTile.transform.localScale = cellSize;
             }
         }
-        
+
         //Destruimos el tilemap.
         Destroy(gameObject);
     }
