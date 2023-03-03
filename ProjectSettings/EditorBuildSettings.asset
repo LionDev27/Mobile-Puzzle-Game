@@ -35,4 +35,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mario/SolveCharacter.unity
     guid: e335bbf4d554e8146818cdd9b7108c3d
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level1.unity
+    guid: eb1c5c833ec60f94d9cacd09813f535d
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level2.unity
+    guid: 08b16448880bd394a831a031a663e8a0
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level3.unity
+    guid: 006e3f4a829cbd6408b9a4696ced634e
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level4.unity
+    guid: 6e3c92347e9bcc34e819ae886767e1e5
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level5.unity
+    guid: 018eff526f9da1e4ab4331e10a10df88
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level6.unity
+    guid: b668710e51d0b2140aa0a50fbbf7d14b
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level7.unity
+    guid: 15f5a1a73bf566f45836b976b139247c
+  - enabled: 1
+    path: Assets/Scenes/FNAF/Level8.unity
+    guid: 60654bc10514ee74293374891123fe19
+  - enabled: 1
+    path: Assets/Scenes/FNAF/SolveCharacter.unity
+    guid: 0954da860b861eb409152a8581c9c140
   m_configObjects: {}

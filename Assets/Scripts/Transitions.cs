@@ -11,9 +11,15 @@ public class Transitions : MonoBehaviour
         LevelController.instance.LoadNextLevel();
     }
 
-    private void GoToLastLevel()
+    private void GoToLoadLevel()
     {
         LevelController.instance.LoadSavedLevel();
+    }
+
+    private void GoToLastLevel()
+    {
+        int level = LevelController.instance.GetCurrentLevel();
+        LevelController.instance.SkipToLevel(level);
     }
 
     private void GoToSolveLevel()
