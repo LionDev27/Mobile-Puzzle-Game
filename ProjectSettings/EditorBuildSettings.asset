@@ -5,7 +5,31 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Mario/Level1.unity
+    guid: 77e77765e5f01ad4cb17b79f94f882f4
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level2.unity
+    guid: 5154311f3e1dc74438ae7e60288a7680
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level3.unity
+    guid: 1c54ff55e3cfe8249a2606bb869efdb1
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level4.unity
+    guid: 4fcb0c4ec8e738b40a18dcaf9bfe4a40
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level5.unity
+    guid: bf46c3032f41eca4f9cc1fc6763df86d
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level6.unity
+    guid: 0040991d0d1318d47a5c47bb36fb0262
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level7.unity
+    guid: c7dd4b684807c9645862ce67c59aa167
+  - enabled: 1
+    path: Assets/Scenes/Mario/Level8.unity
+    guid: 312dec325abd3984eae4c9cf04335664
   m_configObjects: {}

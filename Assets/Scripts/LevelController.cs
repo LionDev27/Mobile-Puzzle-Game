@@ -9,11 +9,14 @@ public class LevelController : MonoBehaviour
 
     public static LevelController instance;
 
+    [SerializeField] private int _devLevelToSkipTo;
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -23,8 +26,15 @@ public class LevelController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        _currentLevel++;
-        if (_currentLevel + 1 >= SceneManager.sceneCountInBuildSettings - 1) _currentLevel = 0;
+        if (_currentLevel + 1 >= SceneManager.sceneCountInBuildSettings)
+        {
+            _currentLevel = 0;
+        }
+        else
+        {
+            _currentLevel++;
+
+        }
 
         SceneManager.LoadScene(_currentLevel);
 
@@ -36,20 +46,39 @@ public class LevelController : MonoBehaviour
     {
         _level.level = _currentLevel;
         string lastLevel = JsonUtility.ToJson(_level);
+
+        //TODO: CAMBIAR A PERSISTENT
         File.WriteAllText(Application.dataPath + "/Savegame.json", lastLevel);
     }
 
     [ContextMenu("LoadGame")]
     public void LoadSavedLevel()
     {
+        //Load Data.
         _level = JsonUtility.FromJson<Level>(File.ReadAllText(Application.dataPath + "/Savegame.json"));
         _currentLevel = _level.level;
+
+        //Change Scene.
+        if (_currentLevel > SceneManager.sceneCountInBuildSettings - 1) _currentLevel = SceneManager.sceneCountInBuildSettings - 1;
+        SceneManager.LoadScene(_currentLevel);
     }
 
-    public void LoadLastLevel()
+    [ContextMenu("DevToolSkipToLevel")]
+    private void DevToolSkipToLevel()
     {
-        if(_currentLevel > SceneManager.sceneCountInBuildSettings - 1) _currentLevel = SceneManager.sceneCountInBuildSettings - 1;
-        SceneManager.LoadScene(_currentLevel);
+        SceneManager.LoadScene(_devLevelToSkipTo);
+        _currentLevel = _devLevelToSkipTo;
+    }
+
+    [ContextMenu("DevToolSkipToLevel")]
+    public void SkipToSolveLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
+    public int GetCurrentLevel()
+    {
+        return _currentLevel;
     }
 }
 
