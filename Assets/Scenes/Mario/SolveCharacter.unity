@@ -1847,8 +1847,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929860824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.15, z: 0}
-  m_LocalScale: {x: 0.08705755, y: 0.08705755, z: 0.08705755}
+  m_LocalPosition: {x: 0.1448, y: 1.03, z: 0}
+  m_LocalScale: {x: 0.11975021, y: 0.09827057, z: 0.08705755}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1868,21 +1868,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelAndSprite:
   - level: 1
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 537ffc8e6d61a2f499fb7249d218b36b, type: 3}
   - level: 2
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5625399aca765804bb1b870d61425dbb, type: 3}
   - level: 3
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 618178cf11a79a04db6bf4c563162cc0, type: 3}
   - level: 4
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 34b6ce69db83ea84389552aa9df25a80, type: 3}
   - level: 5
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 20318d350d24c2548a77b1a436908e07, type: 3}
   - level: 6
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 214ec732e9a50bb44bfbd1a52618af19, type: 3}
   - level: 7
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 3867a56b4dad27149bad72710d69beee, type: 3}
   - level: 8
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: d556147814e8c7346b7a139ab87d6d42, type: 3}
   _characterName: {fileID: 11400000, guid: 854b8cebe6f2c4b4a81a4ade52bda9ec, type: 2}
 --- !u!1 &1957454584
 GameObject:
@@ -2101,6 +2101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a29af60308ca944c8341b7da542d25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _solveLevel: 0
 --- !u!95 &2010712753
 Animator:
   serializedVersion: 4
