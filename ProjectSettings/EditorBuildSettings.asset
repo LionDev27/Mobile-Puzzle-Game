@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 87fe8aa015df13f48abc5a001d00c91c
   - enabled: 1
     path: Assets/Scenes/Mario/Level1.unity
     guid: 77e77765e5f01ad4cb17b79f94f882f4
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mario/Level8.unity
     guid: 312dec325abd3984eae4c9cf04335664
+  - enabled: 1
+    path: Assets/Scenes/Mario/SolveCharacter.unity
+    guid: e335bbf4d554e8146818cdd9b7108c3d
   m_configObjects: {}

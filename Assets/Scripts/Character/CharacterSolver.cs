@@ -34,16 +34,14 @@ public class CharacterSolver : MonoBehaviour
         }
     }
 
-    public void TryToSolveName(string name)
+    public bool TryToSolveName(string name)
     {
         //xd lol.
         if(name == _characterName.characterName)
         {
-            Debug.Log("El nombre es correcto");
+            return true;
         }
-        else
-        {
-            Debug.Log("El nombre no es correcto");
-        }
+
+        return false;
     }
 }

@@ -8,7 +8,8 @@ public class UITextCharacterName : MonoBehaviour
 {
     private Button _b;
     [SerializeField] private TMP_InputField _inputField;
-    [SerializeField] CharacterSolver _solver;
+    [SerializeField] private CharacterSolver _solver;
+    [SerializeField] private Animator _anim;
 
     private void Awake()
     {
@@ -22,6 +23,14 @@ public class UITextCharacterName : MonoBehaviour
 
     void SolveName()
     {
-        _solver.TryToSolveName(_inputField.text);
+        if (_solver.TryToSolveName(_inputField.text))
+        {
+            LevelController.instance.SaveCurrentLevel();
+            _anim.SetTrigger("levelCompleted");
+        }
+        else
+        {
+            _anim.SetTrigger("levelRestart");
+        }
     }
 }

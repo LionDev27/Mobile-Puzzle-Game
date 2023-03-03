@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    private int _currentLevel;
+    private int _currentLevel = 1;
     private Level _level = new Level();
 
     public static LevelController instance;
@@ -21,6 +21,15 @@ public class LevelController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if (!File.Exists(Application.persistentDataPath + "/Savegame.json"))
+        {
+            SaveCurrentLevel();
+            Debug.Log("New Save Created");
         }
     }
 
@@ -48,14 +57,14 @@ public class LevelController : MonoBehaviour
         string lastLevel = JsonUtility.ToJson(_level);
 
         //TODO: CAMBIAR A PERSISTENT
-        File.WriteAllText(Application.dataPath + "/Savegame.json", lastLevel);
+        File.WriteAllText(Application.persistentDataPath + "/Savegame.json", lastLevel);
     }
 
     [ContextMenu("LoadGame")]
     public void LoadSavedLevel()
     {
         //Load Data.
-        _level = JsonUtility.FromJson<Level>(File.ReadAllText(Application.dataPath + "/Savegame.json"));
+        _level = JsonUtility.FromJson<Level>(File.ReadAllText(Application.persistentDataPath + "/Savegame.json"));
         _currentLevel = _level.level;
 
         //Change Scene.
@@ -71,7 +80,7 @@ public class LevelController : MonoBehaviour
     }
 
     [ContextMenu("DevToolSkipToLevel")]
-    public void SkipToSolveLevel(int level)
+    public void SkipToLevel(int level)
     {
         SceneManager.LoadScene(level);
     }
