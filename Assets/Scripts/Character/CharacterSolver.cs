@@ -1,21 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using Guess.Categories;
 using UnityEngine;
 
-[System.Serializable]
-public struct LevelAndSprite
-{
-    [Tooltip("Numero dentro de la build")]
-    public int level;
-    public Sprite sprite;
-}
+
 
 public class CharacterSolver : MonoBehaviour
 {
     [Tooltip("Poner en orden, dependiendo del nivel, las partes que tendría al intentar resolver")]
-    [SerializeField] private LevelAndSprite[] _levelAndSprite;
+    //[SerializeField] private LevelAndSprite[] _levelAndSprite;
     private SpriteRenderer _sR;
-    [SerializeField] private CharacterNameScriptableObject _characterName;
+    [SerializeField] private CategoryScriptableObject _characterName;
 
     private void Awake()
     {
@@ -24,24 +17,24 @@ public class CharacterSolver : MonoBehaviour
 
     private void Start()
     {
-        foreach (var levelSprite in _levelAndSprite)
+        /*foreach (var levelSprite in _levelAndSprite)
         {
             if(levelSprite.level == LevelController.instance.GetCurrentLevel())
             {
                 _sR.sprite = levelSprite.sprite;
                 break;
             }
-        }
+        }*/
     }
 
-    public bool TryToSolveName(string name)
+    /*public bool TryToSolveName(string name)
     {
         //xd lol.
-        if(name == _characterName.characterName)
+        if(name == _characterName)
         {
             return true;
         }
 
         return false;
-    }
+    }*/
 }

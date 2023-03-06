@@ -27,6 +27,6 @@ public class MoveToTargetPosition : MonoBehaviour
 
         yield return new WaitForSeconds(_timeToWaitUntilTransition);
 
-        LevelController.instance.LoadNextLevel();
+        //LevelController.instance.LoadNextLevel();
     }
 }

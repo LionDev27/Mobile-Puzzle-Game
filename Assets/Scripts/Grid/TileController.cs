@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 public class TileController : MonoBehaviour
 {
     [SerializeField] private GameObject _tilePrefab;
+    [SerializeField] private Transform _tileContainer;
     private Tilemap _pathMap;
 
     private void Awake()
@@ -35,7 +36,7 @@ public class TileController : MonoBehaviour
                 pos = new Vector3(pos.x + (cellSize.x / 2f), pos.y + (cellSize.y / 2f), pos.z);
 
                 //Instanciamos nuestro propio tile de funcionamiento. Se puede cambiar a Object Pooling.
-                GameObject tempTile = Instantiate(_tilePrefab, pos, quaternion.identity);
+                GameObject tempTile = Instantiate(_tilePrefab, pos, quaternion.identity, _tileContainer);
                 //Cambiamos la escala del tile propio a la del Grid para que tenga el mismo tamaño.
                 tempTile.transform.localScale = cellSize;
             }

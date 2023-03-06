@@ -23,14 +23,14 @@ public class UITextCharacterName : MonoBehaviour
 
     void SolveName()
     {
-        if (_solver.TryToSolveName(_inputField.text))
+        /*if (_solver.TryToSolveName(_inputField.text))
         {
-            LevelController.instance.SaveCurrentLevel();
+            //LevelController.instance.SaveCurrentLevel();
             _anim.SetTrigger("levelCompleted");
         }
         else
         {
             _anim.SetTrigger("levelRestart");
-        }
+        }*/
     }
 }

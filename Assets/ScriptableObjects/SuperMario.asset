@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83141b04b49351545b4d5c7b9f67fe15, type: 3}
+  m_Name: SuperMario
+  m_EditorClassIdentifier: 
+  categoryLabel: 
+  _characterData: []
+  primaryColor: {r: 1, g: 0, b: 0, a: 1}
+  secondaryColor: {r: 0.29803923, g: 1, b: 0.38431376, a: 1}
+  backgroundFaces: {fileID: 21300000, guid: 50ba3e03a911c054d8b9bfdbc3ee78ec, type: 3}
+  levels:
+  - {fileID: 5001846001288082074, guid: e24c8722432d4b041aadcfe06d823591, type: 3}
+  - {fileID: 813705891475299975, guid: cf8cf1a63ab12de4d8eef8232a7466db, type: 3}
+  - {fileID: 3640010503789864906, guid: 75e1908afcccc9f4b85c793bb2c6a055, type: 3}

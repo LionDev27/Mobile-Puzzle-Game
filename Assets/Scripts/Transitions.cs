@@ -8,22 +8,22 @@ public class Transitions : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        LevelController.instance.LoadNextLevel();
+        //LevelController.instance.LoadNextLevel();
     }
 
     private void GoToLoadLevel()
     {
-        LevelController.instance.LoadSavedLevel();
+        //LevelController.instance.LoadSavedLevel();
     }
 
     private void GoToLastLevel()
     {
-        int level = LevelController.instance.GetCurrentLevel();
-        LevelController.instance.SkipToLevel(level);
+        //int level = LevelController.instance.GetCurrentLevel();
+        //LevelController.instance.SkipToLevel(level);
     }
 
     private void GoToSolveLevel()
     {
-        LevelController.instance.SkipToLevel(_solveLevel);
+        //LevelController.instance.SkipToLevel(_solveLevel);
     }
 }
