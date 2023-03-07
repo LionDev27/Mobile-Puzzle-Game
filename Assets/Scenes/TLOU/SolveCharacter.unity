@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7176471, g: 0.41568628, b: 0, a: 1}
+  m_Color: {r: 0.7176471, g: 0.41568628, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1828,24 +1828,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748ec41965c664343a98680ef4736ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelAndSprite:
-  - level: 46
-    sprite: {fileID: 21300000, guid: dcbea09162661a649ad68aa694497189, type: 3}
-  - level: 47
-    sprite: {fileID: 21300000, guid: c5cf847506e15ce49ad7f6d77cb9cb48, type: 3}
-  - level: 48
-    sprite: {fileID: 21300000, guid: 5b63310364e0ffa4eacd8ec51b9ee448, type: 3}
-  - level: 49
-    sprite: {fileID: 21300000, guid: 95941310291a5f948a20b849f6807f5f, type: 3}
-  - level: 50
-    sprite: {fileID: 21300000, guid: de60735e38a126a47abf70dabb5d0625, type: 3}
-  - level: 51
-    sprite: {fileID: 21300000, guid: 9ec72380cc629e7449398b1c44e94957, type: 3}
-  - level: 52
-    sprite: {fileID: 21300000, guid: d29dd36eccbe2744f9be5d180ce57954, type: 3}
-  - level: 53
-    sprite: {fileID: 21300000, guid: 44298eac94774884aa1a205f75416545, type: 3}
-  _characterName: {fileID: 11400000, guid: 7c76a877c02b99b408d43f5b9caafe6a, type: 2}
+  solveModeActive: 0
+  objectsToHide: []
+  objectsToShow: []
+  _transition: {fileID: 0}
 --- !u!1 &1957454584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63cf1e19a573c6418c1bb4dabc05c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _devLevelToSkipTo: 0
+  _transition: {fileID: 0}
+  _categoryInstance: {fileID: 0}
+  _characterSolver: {fileID: 0}
 --- !u!4 &1957454586
 Transform:
   m_ObjectHideFlags: 0
@@ -2063,7 +2051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a29af60308ca944c8341b7da542d25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solveLevel: 0
 --- !u!95 &2010712753
 Animator:
   serializedVersion: 4

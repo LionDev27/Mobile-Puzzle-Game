@@ -13,7 +13,18 @@ MonoBehaviour:
   m_Name: SuperMario
   m_EditorClassIdentifier: 
   categoryLabel: 
-  _characterData: []
+  _characterData:
+  - characterName: Yoshi
+    characterCompletionLevels:
+    - {fileID: 21300000, guid: 537ffc8e6d61a2f499fb7249d218b36b, type: 3}
+    - {fileID: 21300000, guid: 5625399aca765804bb1b870d61425dbb, type: 3}
+    - {fileID: 21300000, guid: 618178cf11a79a04db6bf4c563162cc0, type: 3}
+    - {fileID: 21300000, guid: 34b6ce69db83ea84389552aa9df25a80, type: 3}
+    - {fileID: 21300000, guid: 20318d350d24c2548a77b1a436908e07, type: 3}
+    - {fileID: 21300000, guid: 214ec732e9a50bb44bfbd1a52618af19, type: 3}
+    - {fileID: 21300000, guid: 3867a56b4dad27149bad72710d69beee, type: 3}
+    - {fileID: 21300000, guid: d556147814e8c7346b7a139ab87d6d42, type: 3}
+    descritption: 
   primaryColor: {r: 1, g: 0, b: 0, a: 1}
   secondaryColor: {r: 0.29803923, g: 1, b: 0.38431376, a: 1}
   backgroundFaces: {fileID: 21300000, guid: 50ba3e03a911c054d8b9bfdbc3ee78ec, type: 3}

@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7176471, g: 0.41568628, b: 0, a: 1}
+  m_Color: {r: 0.7176471, g: 0.41568628, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1828,23 +1828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748ec41965c664343a98680ef4736ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelAndSprite:
-  - level: 10
-    sprite: {fileID: 21300000, guid: 94258ef358c4b464db065b49676383e7, type: 3}
-  - level: 11
-    sprite: {fileID: 21300000, guid: 3f71563e5df4f5c49940c4366aee36b7, type: 3}
-  - level: 12
-    sprite: {fileID: 21300000, guid: 1d8fb2dc6ab91774ab10bf520edec176, type: 3}
-  - level: 13
-    sprite: {fileID: 21300000, guid: f0d42fd37bbb5e847b385e37a839a1cd, type: 3}
-  - level: 14
-    sprite: {fileID: 21300000, guid: 54f703c4814979044beda168959d977d, type: 3}
-  - level: 15
-    sprite: {fileID: 21300000, guid: c18c5595506d3c84f878e90c436bfb69, type: 3}
-  - level: 16
-    sprite: {fileID: 21300000, guid: b960de0d06c219741ace292c39413d8e, type: 3}
-  - level: 17
-    sprite: {fileID: 21300000, guid: 7e328ca313bfc7a4696d3efdfdd1bd29, type: 3}
   _characterName: {fileID: 11400000, guid: 27ac7968a17aba945a6bd9bb82b23a3c, type: 2}
 --- !u!1 &1957454584
 GameObject:
@@ -1875,7 +1858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63cf1e19a573c6418c1bb4dabc05c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _devLevelToSkipTo: 0
+  _transition: {fileID: 0}
+  _categoryInstance: {fileID: 0}
 --- !u!4 &1957454586
 Transform:
   m_ObjectHideFlags: 0
@@ -2063,7 +2047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a29af60308ca944c8341b7da542d25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solveLevel: 0
 --- !u!95 &2010712753
 Animator:
   serializedVersion: 4

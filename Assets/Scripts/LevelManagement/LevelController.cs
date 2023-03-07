@@ -1,26 +1,84 @@
+using System;
 using System.IO;
 using UnityEngine;
 using Guess.Categories;
+using Guess.Solver;
 
 namespace Guess.LevelManagement
 {
     public class LevelController : MonoBehaviour
     {
-        [SerializeField] private CategoryController _categoryController;
+        [SerializeField] private Animator _transition;
         private GameObject _currentLevel;
-        //Nivel de la silueta.
-        private int _sillouetteLevel;
 
-        [ContextMenu("SelectNewLevel")]
-        public void SelectNewLevel()
+        public Action onLevelComplete;
+
+        [SerializeField] private CategoryController _categoryInstance;
+        [SerializeField] private CharacterSolver _characterSolver;
+
+        public static LevelController instance;
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void Start()
+        {
+            SelectNewLevel();
+        }
+
+        private void OnEnable()
+        {
+            onLevelComplete += StartLevelTransition;
+        }
+
+        private void OnDisable()
+        {
+            onLevelComplete -= StartLevelTransition;
+        }
+
+        private void SelectNewLevel()
         {
             if (_currentLevel != null)
             {
                 Destroy(_currentLevel);
             }
 
-            int randomLevel = Random.Range(0, _categoryController.GetCurrentCategory().levels.Length);
-            _currentLevel = Instantiate(_categoryController.GetCurrentCategory().levels[randomLevel]);
+            //Por alguna razón me sale error si no.
+            int randomLevel = UnityEngine.Random.Range(0, _categoryInstance.GetCurrentCategory().levels.Length);
+            _currentLevel = Instantiate(_categoryInstance.GetCurrentCategory().levels[randomLevel]);
+        }
+
+        public void CompleteLevel()
+        {
+            onLevelComplete?.Invoke();
+        }
+
+        private void StartLevelTransition()
+        {
+            if (!_characterSolver.solveModeActive)
+            {
+                _transition.SetTrigger("levelCompleted");
+            }
+        }
+
+        public void EndTransition()
+        {
+            if (_characterSolver.solveModeActive)
+            {
+                Destroy(_currentLevel);
+
+                return;
+            }
+            SelectNewLevel();
         }
 
         //Fuck this shit

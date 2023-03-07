@@ -12,5 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83141b04b49351545b4d5c7b9f67fe15, type: 3}
   m_Name: Tommy
   m_EditorClassIdentifier: 
-  characterName: Tommy
-  descritption: Se puede utilizar para poner curiosidades etc... (no implementado)
+  categoryLabel: 
+  _characterData:
+  - characterName: Tommy
+    characterCompletionLevels:
+    - {fileID: 21300000, guid: dcbea09162661a649ad68aa694497189, type: 3}
+    - {fileID: 21300000, guid: c5cf847506e15ce49ad7f6d77cb9cb48, type: 3}
+    - {fileID: 21300000, guid: 5b63310364e0ffa4eacd8ec51b9ee448, type: 3}
+    - {fileID: 21300000, guid: 95941310291a5f948a20b849f6807f5f, type: 3}
+    - {fileID: 21300000, guid: de60735e38a126a47abf70dabb5d0625, type: 3}
+    - {fileID: 21300000, guid: 9ec72380cc629e7449398b1c44e94957, type: 3}
+    - {fileID: 21300000, guid: d29dd36eccbe2744f9be5d180ce57954, type: 3}
+    - {fileID: 21300000, guid: 44298eac94774884aa1a205f75416545, type: 3}
+    descritption: 
+  primaryColor: {r: 0.90374327, g: 1, b: 0, a: 1}
+  secondaryColor: {r: 0, g: 0.7107439, b: 1, a: 1}
+  backgroundFaces: {fileID: 21300000, guid: a64c0a92b0e59834b98f4d62153b5cf6, type: 3}
+  levels:
+  - {fileID: 5001846001288082074, guid: e24c8722432d4b041aadcfe06d823591, type: 3}
+  - {fileID: 813705891475299975, guid: cf8cf1a63ab12de4d8eef8232a7466db, type: 3}
+  - {fileID: 3640010503789864906, guid: 75e1908afcccc9f4b85c793bb2c6a055, type: 3}

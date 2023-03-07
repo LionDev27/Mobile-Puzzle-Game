@@ -1,16 +1,18 @@
+using Guess.LevelManagement;
 using UnityEngine;
 
-public class GoalTile : BaseTile
+namespace Guess.Grid
 {
-    [SerializeField] private Animator _levelCompleted;
-
-    protected override void OnPlayerEnter()
+    public class GoalTile : BaseTile
     {
-        _levelCompleted.SetTrigger("levelCompleted");
-    }
+        protected override void OnPlayerEnter()
+        {
+            LevelController.instance.CompleteLevel();
+        }
 
-    protected override void OnPlayerExit()
-    {
-        //Nada.
+        protected override void OnPlayerExit()
+        {
+            //Nada.
+        }
     }
 }
