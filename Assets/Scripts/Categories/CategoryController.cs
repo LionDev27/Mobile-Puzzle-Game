@@ -41,16 +41,6 @@ namespace Guess.Categories
             SelectNewCategory();
         }
 
-        private void OnEnable()
-        {
-            _levelControllerInstance.onLevelComplete += IncreaseSillouetteLevel;
-        }
-
-        private void OnDisable()
-        {
-            _levelControllerInstance.onLevelComplete -= IncreaseSillouetteLevel;
-        }
-
         [ContextMenu("SelectNewCategory")]
         public void SelectNewCategory()
         {
@@ -88,16 +78,10 @@ namespace Guess.Categories
             _characterData = _currentCategory._characterData[randomCharacter];
         }
 
-        private void IncreaseSillouetteLevel()
+        public void IncreaseSillouetteLevel()
         {
             if (_characterSolver.solveModeActive) return;
 
-            if(_sillouetteLevel >= _characterData.characterCompletionLevels.Length - 1)
-            {
-                _characterSolver.gameObject.SetActive(true);
-                _characterSolver.EnterSolveMode();
-                return;
-            }
             _sillouetteLevel++;
             _sillouetteLevel = Mathf.Clamp(_sillouetteLevel, 0, _characterData.characterCompletionLevels.Length - 1);
             SetCharacterHints(_sillouetteLevel);

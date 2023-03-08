@@ -12,6 +12,7 @@ namespace Guess.LevelManagement
         private GameObject _currentLevel;
 
         public Action onLevelComplete;
+        private Action onTransitionEnd;
 
         [SerializeField] private CategoryController _categoryInstance;
         [SerializeField] private CharacterSolver _characterSolver;
@@ -35,17 +36,7 @@ namespace Guess.LevelManagement
             SelectNewLevel();
         }
 
-        private void OnEnable()
-        {
-            onLevelComplete += StartLevelTransition;
-        }
-
-        private void OnDisable()
-        {
-            onLevelComplete -= StartLevelTransition;
-        }
-
-        private void SelectNewLevel()
+        public void SelectNewLevel()
         {
             if (_currentLevel != null)
             {
@@ -57,27 +48,33 @@ namespace Guess.LevelManagement
             _currentLevel = Instantiate(_categoryInstance.GetCurrentCategory().levels[randomLevel]);
         }
 
-        public void CompleteLevel()
+        public void StartLevelTransition(Action actionTransitionEnd)
         {
-            onLevelComplete?.Invoke();
-        }
+            onTransitionEnd = actionTransitionEnd;
+            _transition.SetTrigger("levelCompleted");
 
-        private void StartLevelTransition()
-        {
             if (!_characterSolver.solveModeActive)
             {
-                _transition.SetTrigger("levelCompleted");
+                _categoryInstance.IncreaseSillouetteLevel();
             }
         }
 
         public void EndTransition()
         {
+            onTransitionEnd?.Invoke();
+            onTransitionEnd = null;
+
+            if (_categoryInstance.IsSillouetteAtMaxLevel())
+            {
+                _characterSolver.gameObject.SetActive(true);
+                _characterSolver.EnterSolveMode();
+            }
             if (_characterSolver.solveModeActive)
             {
                 Destroy(_currentLevel);
-
                 return;
             }
+
             SelectNewLevel();
         }
 

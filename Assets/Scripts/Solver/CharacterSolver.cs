@@ -56,23 +56,23 @@ namespace Guess.Solver
         {
             if (name == _characterName)
             {
-                CategoryController.instance.SelectNewCategory();
-                LevelController.instance.CompleteLevel();
-                _transition.SetTrigger("correct");
                 ExitSolveMode();
+                _transition.SetTrigger("correct");
+                CategoryController.instance.SelectNewCategory();
+                LevelController.instance.SelectNewLevel();
             }
             else if (CategoryController.instance.IsSillouetteAtMaxLevel())
             {
-                CategoryController.instance.SelectNewCategory();
-                LevelController.instance.CompleteLevel();
-                _transition.SetTrigger("notCorrect");
                 ExitSolveMode();
+                _transition.SetTrigger("notCorrect");
+                CategoryController.instance.SelectNewCategory();
+                LevelController.instance.SelectNewLevel();
             }
             else
             {
-                LevelController.instance.CompleteLevel();
-                _transition.SetTrigger("notCorrect");
                 ExitSolveMode();
+                _transition.SetTrigger("notCorrect");
+                LevelController.instance.SelectNewLevel();
             }
         }
     }

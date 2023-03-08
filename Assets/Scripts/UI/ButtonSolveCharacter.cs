@@ -12,6 +12,7 @@ namespace Guess.UI
         protected override void OnClick()
         {
             _solver.TryToSolveName(_inputField.text);
+            _inputField.text= string.Empty;
         }
     }
 }

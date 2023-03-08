@@ -7,7 +7,7 @@ namespace Guess.Grid
     {
         protected override void OnPlayerEnter()
         {
-            LevelController.instance.CompleteLevel();
+            LevelController.instance.StartLevelTransition(() => { });
         }
 
         protected override void OnPlayerExit()
